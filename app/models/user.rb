@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
    before_save { self.email = email.downcase if email.present? }
    
+   after_create :send_confirmation_email
+   
 
    validates :username, 
             length: { minimum: 1, maximum: 100 }, 
@@ -17,4 +19,10 @@ class User < ActiveRecord::Base
 
 
    has_secure_password
- end
+   
+   private
+ 
+      def send_confirmation_email
+       FavoriteMailer.new_user(self).deliver_now
+     end
+   end
