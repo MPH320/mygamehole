@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'welcome/about'
   
   resources :users
+  post 'users/confirm' => 'users#confirm'
   
   root 'welcome#index'
 
