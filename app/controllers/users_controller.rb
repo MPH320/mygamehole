@@ -3,6 +3,10 @@ class UsersController < ApplicationController
      @user = User.new
     end
     
+    def show
+     @user = User.find(params[:id])
+    end
+    
     def confirm
        @user = User.new
        @user.username = params[:user][:username]
@@ -21,8 +25,8 @@ class UsersController < ApplicationController
  
 
      if @user.save
-       flash[:notice] = "Welcome to MyGameHole #{@user.username}!"
-       redirect_to root_path
+       flash[:notice] = "Please confirm your email address to continue"
+       redirect_to root_url
      else
        flash.now[:alert] = "There was an error creating your account. Please try again."
        render :new

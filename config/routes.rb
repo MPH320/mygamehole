@@ -3,7 +3,12 @@ Rails.application.routes.draw do
 
   get 'welcome/about'
   
-  resources :users
+  resources :users do
+    member do
+      get :confirm_email
+    end
+  end
+  
   post 'users/confirm' => 'users#confirm'
   
   root 'welcome#index'

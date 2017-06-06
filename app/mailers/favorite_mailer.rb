@@ -5,6 +5,6 @@ class FavoriteMailer < ApplicationMailer
  
      @user = user
  
-     mail(to: user.email, subject: "Thanks for signing up!")
+     mail(to: "#{user.username} <#{user.email}>", subject: "Please confirm your new account.")
    end
 end

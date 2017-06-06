@@ -4,15 +4,12 @@
      <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
    </head>
    <body>
-     <h1></h1>
-     <small>
-      
-     </small>
+     <h1>Hi <%= @user.username %>,</h1>
      <p>
-       
+       Thanks for registering! To confirm your new account click the URL below.
      </p>
      <p>
-       <%= link_to "Start building your games profile.", welcome_index_path %>
+       <%= confirm_email_user_url(@user.confirm_token) %>
      </p>
    </body>
  </html>
