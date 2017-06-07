@@ -32,4 +32,17 @@ class UsersController < ApplicationController
        render :new
      end
    end
+   
+   def confirm_email
+    user = User.find_by_confirm_token(params[:id])
+    if user
+      user.email_activate
+      flash[:notice] = "Welcome to your game hole! Your email has been confirmed.
+      Please sign in to continue."
+      redirect_to new_session_path
+    else
+      flash[:alert] = "User info is incorrect."
+      redirect_to root_url
+    end
+end
 end

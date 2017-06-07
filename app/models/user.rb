@@ -26,6 +26,12 @@ class User < ActiveRecord::Base
      "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
    end
    
+   def email_activate
+    self.email_confirmed = true
+    self.confirm_token = nil
+    save!(:validate => false)
+  end
+   
    private
  
       def send_confirmation_email
