@@ -3,6 +3,25 @@ class UsersController < ApplicationController
      @user = User.new
     end
     
+    def edit
+     @user = User.find(params[:id])
+    end
+    
+    def update
+     @user = User.find(params[:id])
+     @user.username = params[:user][:username]
+     @user.email = params[:user][:email]
+     @user.password = params[:user][:password]
+ 
+     if @user.save
+       flash[:notice] = "Your details were updated."
+       redirect_to @user
+     else
+       flash.now[:alert] = "There was an error saving the changes. Please try again."
+       render :edit
+     end
+   end
+    
     def show
      @user = User.find(params[:id])
     end
