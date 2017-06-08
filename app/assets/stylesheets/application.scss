@@ -12,9 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= bootstrap.min.css
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+
 
  .user-info {
    margin-top: 9px;
