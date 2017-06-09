@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   get 'welcome/about'
-  
+  resources :games
   resources :users do
     member do
       get :confirm_email

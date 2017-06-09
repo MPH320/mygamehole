@@ -1,0 +1,14 @@
+<h1><%= @game.title %> 
+ <% if authorized_game_edit(@game) %>
+ - <%= link_to "Edit Game", edit_game_path, class: 'btn btn-success' %>
+ <%= link_to "Delete Game", @Game, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this Game?' } %>
+ <% end %>
+</h1>
+<br>
+ <div class="row">
+   <div class="col-md-8">
+     <p class="lead"><%= @game.description %></p>
+     <p class="lead"><%= @game.url %></p>
+     <p class="lead"><%= User.find(@game.user_id).username %></p>
+   </div>
+ </div>

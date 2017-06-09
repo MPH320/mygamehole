@@ -10,4 +10,24 @@ module SessionsHelper
    def current_user
      User.find_by(id: session[:user_id])
    end
+   
+   def authorized_game_edit(game)
+        if game.user_id == session[:user_id]
+            return true
+        else 
+            return false
+        end 
+   end
+   
+   def authorized_profile_edit(user)
+        if user.id == session[:user_id]
+            return true
+        else 
+            return false
+        end 
+   end
+   
+    def myGames(user)
+        Game.where(:user_id => user.id).all
+    end
 end

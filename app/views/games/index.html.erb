@@ -1,0 +1,19 @@
+<h1>Games</h1>
+ <br>
+ <div class="row">
+   <div class="col-md-8">
+
+     <% @games.each do |game| %>
+       <div class="media">
+         <div class="media-body">
+           <h4 class="media-heading">
+             <%= link_to game.title, game %>
+           </h4>
+           <small>
+             <%= game.description %>
+           </small>
+         </div>
+       </div>
+     <% end %>
+   </div>
+ </div>

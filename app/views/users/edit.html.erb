@@ -1,3 +1,4 @@
+<% if authorized_profile_edit(@user) %>
 <h1>Edit profile</h1>
  
  <div class="row">
@@ -21,3 +22,6 @@
      <% end %>
    </div>
  </div>
+ <% else %>
+ <h1>Are you authorized for this?</h1>
+ <% end %>

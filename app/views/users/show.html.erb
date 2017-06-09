@@ -1,7 +1,19 @@
-<h1>Hi <%= @user.username %></h1>
+<h1><%= @user.username %>'s GameHole</h1>
+<br>
+   <% if authorized_profile_edit(@user) %>
+     <%= link_to "Add New Game", new_game_path, class: 'btn btn-success' %>
+     <%= link_to "Edit your profile", edit_user_path(@user), class: 'btn btn-success' %>
+     <br><br>
+   <% end %>
  
- <div class="row">
-   <div class="col-md-4">
-     <%= link_to "Edit", edit_user_path(@user), class: 'btn btn-success' %>
-   </div>
+     <% myGames(@user).each do |game| %>
+      <div class="media">
+       <div class="media-body">
+        <h4 class="media-heading"><%= link_to game.title, game %></h4>
+        <small><%= game.description %></small>
+        <br><br> 
+       </div>
+      </div>
+     <% end %>
+ 
  </div>
