@@ -1,7 +1,12 @@
-<h1><%= @game.title %> 
+<h1><%= @game.title %>
  <% if authorized_game_edit(@game) %>
  - <%= link_to "Edit Game", edit_game_path, class: 'btn btn-success' %>
  <%= link_to "Delete Game", @Game, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this Game?' } %>
+ </h1>
+ <% else %>
+  </h1>
+  <small>by: <%= User.find(@game.user_id).username %></small>
+  <br>
  <% end %>
 </h1>
 <br>
@@ -9,20 +14,21 @@
    <div class="col-md-8">
      <p class="lead"><%= @game.description %></p>
      <p class="lead"><%= @game.url %></p>
-     <p class="lead"><%= User.find(@game.user_id).username %></p>
+     
    </div>
  </div>
  
      <% findReviews(@game).each do |review| %>
       <div class="media">
        <div class="media-body">
-        <h4 class="media-heading"><%= link_to review.title, review %></h4>
-        <small><%= review.rating %><%= review.body %><%= review.author %></small>
+        <h3><%= review.title %></h2>
+        <h4 class="media-heading"><%= review.body %></h4>
+        <small>Rating: <%= review.rating %> - Reviewed by: <%= review.author %></small>
         <br><br> 
        </div>
       </div>
      <% end %>
      
-     <% if current_user %>
-       <%= render 'reviews/form', review: Review.new, game: @game %>
+     <% if authorized_reviewer(@game) && current_user %>
+       <%= render 'reviews/form', review: Review.new, game: @game %><br><br>
      <% end %>

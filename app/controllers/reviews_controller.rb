@@ -1,10 +1,9 @@
 class ReviewsController < ApplicationController
-  before_action :require_sign_in
 
   def create
 
      @game = Game.find(params[:game_id])
-     review = @game.reviews.new(comment_params)
+     review = @game.reviews.new(review_params)
      review.author = current_user.username
  
      if review.save
@@ -22,6 +21,6 @@ class ReviewsController < ApplicationController
   private
  
    def review_params
-     params.require(:review).permit(:body)
+     params.require(:review).permit(:body, :title, :rating)
    end
 end
