@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+
   get 'welcome/index'
 
   get 'welcome/about'
-  resources :games
+  
+  resources :games do
+    resources :reviews, only: [:create, :destroy]
+  end
   resources :users do
     member do
       get :confirm_email

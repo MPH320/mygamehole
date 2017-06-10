@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
    before_create :confirmation_token
    before_save { self.email = email.downcase if email.present? }
    has_many :games, dependent: :destroy
-   
+
    after_create :send_confirmation_email
    
 

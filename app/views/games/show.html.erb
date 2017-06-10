@@ -12,3 +12,17 @@
      <p class="lead"><%= User.find(@game.user_id).username %></p>
    </div>
  </div>
+ 
+     <% findReviews(@game).each do |review| %>
+      <div class="media">
+       <div class="media-body">
+        <h4 class="media-heading"><%= link_to review.title, review %></h4>
+        <small><%= review.rating %><%= review.body %><%= review.author %></small>
+        <br><br> 
+       </div>
+      </div>
+     <% end %>
+     
+     <% if current_user %>
+       <%= render 'reviews/form', review: Review.new, game: @game %>
+     <% end %>
