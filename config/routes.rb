@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  get 'welcome/play'
 
   get 'welcome/index'
 

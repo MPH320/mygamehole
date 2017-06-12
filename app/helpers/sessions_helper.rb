@@ -1,4 +1,6 @@
 module SessionsHelper
+    @@gameToPlay = Game.all.sample
+    
     def create_session(user)
      session[:user_id] = user.id
    end
@@ -9,6 +11,15 @@ module SessionsHelper
  
    def current_user
      User.find_by(id: session[:user_id])
+   end
+   
+   def set_game(game)
+     @@gameToPlay = game
+     return
+   end
+   
+   def get_game()
+     return @@gameToPlay
    end
    
    def authorized_game_edit(game)

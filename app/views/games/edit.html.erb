@@ -8,13 +8,17 @@
          <%= f.label :title %>
          <%= f.text_field :title, class: 'form-control', placeholder: "Enter game title" %>
        </div>
+        <div class="form-group">
+         <%= f.label :url %>
+         <%= f.text_field :url, class: 'form-control', placeholder: "Enter game url" %>
+       </div>
        <div class="form-group">
          <%= f.label :description %>
          <%= f.text_area :description, rows: 8, class: 'form-control', placeholder: "Enter game description" %>
        </div>
        <div class="form-group">
-         <%= f.label :url %>
-         <%= f.text_field :url, class: 'form-control', placeholder: "Enter game url" %>
+         <%= f.label :javascript %>
+         <%= f.text_area :javascript, rows: 8, class: 'form-control', placeholder: "Enter game description" %>
        </div>
        <%= f.submit "Save", class: 'btn btn-success' %>
      <% end %>

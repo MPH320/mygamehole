@@ -1,3 +1,4 @@
+<%= set_game(@game) %>
 <h1><%= @game.title %>
  <% if authorized_game_edit(@game) %>
  - <%= link_to "Edit Game", edit_game_path, class: 'btn btn-success' %>
@@ -17,7 +18,7 @@
      
    </div>
  </div>
- 
+     <%= link_to "Play this game", welcome_play_path, class: 'btn btn-success' %>
      <% findReviews(@game).each do |review| %>
       <div class="media">
        <div class="media-body">
@@ -28,7 +29,8 @@
        </div>
       </div>
      <% end %>
-     
-     <% if authorized_reviewer(@game) && current_user %>
+     <% if current_user %>
+      <% if authorized_reviewer(@game) %>
        <%= render 'reviews/form', review: Review.new, game: @game %><br><br>
+      <% end %>
      <% end %>
