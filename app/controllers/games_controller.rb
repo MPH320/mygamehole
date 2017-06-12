@@ -17,6 +17,7 @@ class GamesController < ApplicationController
      @game.title = params[:game][:title]
      @game.description = params[:game][:description]
      @game.javascript = params[:game][:javascript]
+     @game.style = params[:game][:style]
      @game.url = params[:game][:url]
  
      if @game.save
@@ -49,6 +50,7 @@ class GamesController < ApplicationController
      @game.title = params[:game][:title]
      @game.description = params[:game][:description]
      @game.javascript = params[:game][:javascript]
+     @game.style = params[:game][:style]
      @game.url = params[:game][:url]
      @game.user_id = session[:user_id]
      
