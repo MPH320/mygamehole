@@ -9,21 +9,22 @@
          <%= f.text_field :title, class: 'form-control', placeholder: "Enter game title" %>
        </div>
        <div class="form-group">
-         <%= f.label :description %>
-         <%= f.text_area :description, rows: 8, class: 'form-control', placeholder: "Enter game description" %>
+         <%= f.label "Enter game description" %>
+         <%= f.text_area :description, rows: 8, class: 'form-control', placeholder: "This game is awesome."  %>
+       </div>
+     <div class="form-group">
+         <%= f.label "Enter tags for scripts or styles that go in <head>" %>
+         <%= f.text_area :style, rows: 8, class: 'form-control',  placeholder: "<style>example</style>" %>
        </div>
        <div class="form-group">
-         <%= f.label :content %>
-         <%= f.text_area :content, rows: 8, class: 'form-control', placeholder: "the body of your HTML content" %>
+         <%= f.label "the body of your HTML content" %>
+         <%= f.text_area :content, rows: 8, class: 'form-control', placeholder: "<canvas id='example'></canvas>" %>
        </div>
        <div class="form-group">
-         <%= f.label :style %>
-         <%= f.text_area :style, rows: 8, class: 'form-control', placeholder: "Enter game styles" %>
+         <%= f.label "Enter tags for scripts or styles that go below <body>" %>
+         <%= f.text_area :javascript, rows: 12, class: 'form-control', placeholder: "<script type='text/javascript'>example</script>" %>
        </div>
-       <div class="form-group">
-         <%= f.label :javascript %>
-         <%= f.text_area :javascript, rows: 8, class: 'form-control', placeholder: "Enter Javascript code" %>
-       </div>
+       
        <%= f.submit "Save", class: 'btn btn-success' %>
      <% end %>
      <br>

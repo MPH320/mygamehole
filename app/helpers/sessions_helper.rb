@@ -13,6 +13,11 @@ module SessionsHelper
      User.find_by(id: session[:user_id])
    end
    
+   def get_name
+     name = User.find_by(id: session[:user_id])
+     return name.username
+   end
+   
    def set_game(game)
      @@gameToPlay = game
      return
