@@ -6,14 +6,17 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= yield :head %>
+
+ 
+
+
 </head>
 <body>
   
   <div class="container">
      <ul class="nav nav-tabs">
       <li><%= link_to "Home", welcome_index_path %></li>
-      <li><%= link_to "About", welcome_about_path %></li>
+      <li><%= link_to "HowTo", welcome_howto_path %></li>
       <li><%= link_to "Games", games_path %></li>
       
       <div class="pull-right user-info">
@@ -47,4 +50,12 @@
  </div>
  
 </body>
+<% if current_page?(welcome_play_path) %>
+    <script type="text/javascript">
+        <%= get_game().javascript.force_encoding('UTF-8').html_safe %>
+    </script>
+    <style>
+        <%= get_game().style.force_encoding('UTF-8').html_safe %>
+    </style>
+<% end %>
 </html>

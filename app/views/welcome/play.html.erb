@@ -1,8 +1,2 @@
-<% content_for :head do %>
-  <script type="text/javascript">
-   <%= get_game().javascript.force_encoding('UTF-8').html_safe %>
-  </script>
-  <style>
-   <%= get_game().style.force_encoding('UTF-8').html_safe %>
-  </style>
-<% end %>
+<%= get_game().content.force_encoding('UTF-8').html_safe %>
+

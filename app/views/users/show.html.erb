@@ -2,7 +2,7 @@
 <br>
    <% if authorized_profile_edit(@user) %>
      <%= link_to "Add New Game", new_game_path, class: 'btn btn-success' %>
-     <%= link_to "Edit your profile", edit_user_path(@user), class: 'btn btn-success' %>
+     <%= link_to "Edit your profile", edit_user_path(@user), class: 'btn btn-warning' %>
      <br><br>
    <% end %>
  
@@ -10,7 +10,10 @@
       <div class="media">
        <div class="media-body">
         <h4 class="media-heading"><%= link_to game.title, game %></h4>
-        <small><%= game.description %></small>
+        <small><%= game.description %> &nbsp;</small>
+        <% if authorized_profile_edit(@user) %>
+         <%= link_to "Edit Game", edit_game_path, class: 'btn-xs btn-warning' %>
+        <% end %>
         <br><br> 
        </div>
       </div>

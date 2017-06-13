@@ -18,7 +18,7 @@ class GamesController < ApplicationController
      @game.description = params[:game][:description]
      @game.javascript = params[:game][:javascript]
      @game.style = params[:game][:style]
-     @game.url = params[:game][:url]
+     @game.content = params[:game][:content]
  
      if @game.save
        flash[:notice] = "Game was updated."
@@ -51,7 +51,7 @@ class GamesController < ApplicationController
      @game.description = params[:game][:description]
      @game.javascript = params[:game][:javascript]
      @game.style = params[:game][:style]
-     @game.url = params[:game][:url]
+     @game.content = params[:game][:content]
      @game.user_id = session[:user_id]
      
      if @game.save
