@@ -12,7 +12,7 @@
         <h4 class="media-heading"><%= link_to game.title, game %></h4>
         <small><%= game.description %> &nbsp;</small>
         <% if authorized_profile_edit(@user) %>
-         <%= link_to "Edit Game", edit_game_path, class: 'btn-xs btn-warning' %>
+         <%= link_to "Edit Game", edit_game_path(game), class: 'btn-xs btn-warning' %>
         <% end %>
         <br><br> 
        </div>
