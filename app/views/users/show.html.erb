@@ -13,6 +13,7 @@
         <small><%= game.description %> &nbsp;</small>
         <% if authorized_profile_edit(@user) %>
          <%= link_to "Edit Game", edit_game_path(game), class: 'btn-xs btn-warning' %>
+         <%= link_to "Delete Game", game, method: :delete, class: 'btn-xs btn-danger', data: { confirm: 'Are you sure you want to delete this Game?' } %>
         <% end %>
         <br><br> 
        </div>
