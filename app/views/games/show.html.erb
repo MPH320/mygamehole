@@ -45,5 +45,5 @@
 <%= pie_chart @game.events.group(:name).count %>
 
 <p>Pie chart showing number of users vs number of events</p>
-<%= pie_chart [["Number of users", @game.users.count],["Number of events", @game.events.count]] %>
+<%= pie_chart [["Number of users", @game.events.group(:user_id).count],["Number of events", @game.events.count]] %>
 <br>
