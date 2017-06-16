@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   
+  get 'events/new'
+
   get 'welcome/play'
 
   get 'welcome/index'
 
   get 'welcome/howto'
+  
+  resources :events, only: [:create]
   
   resources :games do
     resources :reviews, only: [:create, :destroy]
