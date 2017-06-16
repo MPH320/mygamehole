@@ -1,16 +1,16 @@
 <h1>Rules of the road</h1>
 <ul>
-    <li>Only apply styles to elements you have given a class to or you could mess up other elements on the page.</li>
-    <li>Save an analytics event with the code below.<br><br><small>Go to your game's page and get its id number.<br><br>var event = {<br>
+    <li>Only apply styles to elements you have given a class or id to</li>
+    <li>Save an analytics event with the code below:<br><br><small>var event = {<br>
 &emsp;name: '<strong>Insert the name of your analytics event</strong>',<br>
-&emsp;game_id:  <strong>Your analytics id goes here</strong>,<br>
+&emsp;value: <strong>A value or score goes here as an integer</strong>, &nbsp;//This is optional. Leave out this entire line if you want.<br>
 }<br><br>
 $.post(' /events', event); <strong>//this is also necessary</strong></small></li><br>
     <li>You can save pictures and other assets onto dropbox and then load them into your game<br> <small>&emsp;Make a public dropbox link and then change the link and replace dropbox.com with https://dl.dropboxusercontent.com</small></li>
     <li>Javascript's window.onload is unreliable</li>
-    <li>Test your game often.</li>
+    <li>Test your game often</li>
     <li>You can use jQuery</li>
-    <li>Have fun.</li>
+    <li>Have fun</li>
 </ul>
 
 
