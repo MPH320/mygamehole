@@ -32,3 +32,10 @@
        <%= render 'reviews/form', review: Review.new, game: @game %><br><br>
       <% end %>
      <% end %>
+     <br><br>
+      <p>Pie chart showing events for this game and grouped name</p>
+<%= pie_chart @game.events.group(:name).count %>
+
+<br><p>Column chart showing events for this game and grouped name</p>
+<%= column_chart  @game.events.group(:name).count %>
+<br>

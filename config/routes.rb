@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'events/new'
 
   get 'welcome/play'
+  
+  get 'welcome/analytics'
 
   get 'welcome/index'
 

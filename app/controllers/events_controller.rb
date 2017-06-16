@@ -4,10 +4,8 @@ class EventsController < ApplicationController
         puts "Starting evaluation"
         if params[:value].nil?
             params[:value] = nil
-            puts "no value"
         else
             params[:value].to_i
-            puts "there is a value"
         end
       
         @event = Event.create!(
