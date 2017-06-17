@@ -33,11 +33,13 @@
       <% end %>
      <% end %>
      <br><br>
-      <p>Pie chart showing events for this game and grouped by name</p>
-<%= pie_chart @game.events.group(:name).count %>
+      
 
 
-<br><p>Column chart showing when each event was created and grouped by hour of day</p>
+<p>Column chart showing when each event was created and grouped by hour of day</p>
 <%= column_chart @game.events.group(:name).group_by_hour_of_day(:created_at, format: "%l %P").count %>
 <br>
+
+<p>Pie chart showing events for this game and grouped by name</p>
+<%= pie_chart @game.events.group(:name).count %>
 

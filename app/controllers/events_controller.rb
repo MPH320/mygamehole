@@ -1,20 +1,29 @@
 class EventsController < ApplicationController
     
     def create
-        puts "Starting evaluation"
+        
         if params[:value].nil?
             params[:value] = nil
         else
             params[:value].to_i
         end
-      
-        @event = Event.create!(
+        
+        variable = current_user
+        if variable.nil?
+         @event = Event.create!(
+            name:     params[:name],
+            value:    params[:value],
+            game_id:  get_game().id
+        )
+        else
+         @event = Event.create!(
             name:     params[:name],
             value:    params[:value],
             game_id:  get_game().id,
-            user_id:  current_user.id
+            user_id:  variable.id
         )
-        
+        end
+
         respond_to do |format|
             if @event.save
                 puts "Analytics saved"
