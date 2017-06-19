@@ -11,7 +11,7 @@ source 'https://rubygems.org'
  
  # #2
  group :development do
-   gem 'sqlite3'
+   gem 'pg'
  end
  
  # Use SCSS for stylesheets
